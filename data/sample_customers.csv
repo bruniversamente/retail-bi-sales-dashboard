@@ -1,0 +1,12 @@
+customer_id,customer_segment,city,state,signup_date
+C-001,Recurring,Curitiba,PR,2025-06-12
+C-002,New,Sao Paulo,SP,2025-12-30
+C-003,New,Rio de Janeiro,RJ,2026-01-02
+C-004,Recurring,Florianopolis,SC,2025-04-18
+C-005,Recurring,Curitiba,PR,2025-02-05
+C-006,New,Belo Horizonte,MG,2026-01-21
+C-007,Recurring,Sao Paulo,SP,2025-03-11
+C-008,New,Porto Alegre,RS,2026-02-28
+C-009,New,Salvador,BA,2026-02-20
+C-010,Recurring,Curitiba,PR,2024-11-09
+C-011,New,Joinville,SC,2026-03-10
