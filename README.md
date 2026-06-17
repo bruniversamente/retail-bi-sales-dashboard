@@ -35,6 +35,8 @@ retail-bi-sales-dashboard/
 │   ├── sample_orders.csv
 │   ├── sample_order_items.csv
 │   ├── sample_products.csv
+│   ├── sample_customers.csv
+│   ├── sample_targets.csv
 │   └── README.md
 ├── docs/
 │   ├── business_rules.md
@@ -45,7 +47,8 @@ retail-bi-sales-dashboard/
 ├── powerbi/
 │   └── measures_dax.md
 ├── scripts/
-│   └── generate_retail_data.py
+│   ├── generate_retail_data.py
+│   └── run_sql.py
 ├── sql/
 │   ├── 01_create_schema_duckdb.sql
 │   ├── 02_data_quality_checks.sql
@@ -97,18 +100,16 @@ cd retail-bi-sales-dashboard
 pip install -r requirements.txt
 ```
 
-3. Gere uma base maior, caso queira substituir os arquivos de exemplo:
+3. Execute os scripts SQL com DuckDB:
+
+```bash
+python scripts/run_sql.py
+```
+
+4. Gere uma base maior, caso queira substituir os arquivos de exemplo:
 
 ```bash
 python scripts/generate_retail_data.py
-```
-
-4. Execute os scripts SQL no DuckDB:
-
-```bash
-duckdb retail_bi.duckdb < sql/01_create_schema_duckdb.sql
-duckdb retail_bi.duckdb < sql/02_data_quality_checks.sql
-duckdb retail_bi.duckdb < sql/03_kpi_queries.sql
 ```
 
 ## Principais insights esperados
@@ -133,7 +134,7 @@ Em uma análise desse tipo, o dashboard permite identificar:
 
 - Criar arquivo `.pbix` com modelo final no Power BI.
 - Publicar screenshots reais do dashboard.
-- Incluir análise de cohort de clientes recorrentes.
+- Incluir análise de clientes recorrentes.
 - Adicionar simulação de forecast simples para receita mensal.
 
 ## Autor
