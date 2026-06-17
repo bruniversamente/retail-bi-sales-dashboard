@@ -1,0 +1,13 @@
+order_id,order_date,customer_id,sales_channel,state,payment_method,order_status,shipping_days
+O-1001,2026-01-05,C-001,E-commerce,PR,Credit Card,Delivered,3
+O-1002,2026-01-08,C-002,Store,SP,Debit Card,Delivered,1
+O-1003,2026-01-12,C-003,Marketplace,RJ,Pix,Delivered,5
+O-1004,2026-01-21,C-004,E-commerce,SC,Credit Card,Delivered,4
+O-1005,2026-02-03,C-005,Store,PR,Pix,Delivered,1
+O-1006,2026-02-10,C-006,Marketplace,MG,Credit Card,Delivered,6
+O-1007,2026-02-18,C-001,E-commerce,PR,Pix,Delivered,2
+O-1008,2026-03-02,C-007,Store,SP,Debit Card,Delivered,1
+O-1009,2026-03-09,C-008,E-commerce,RS,Credit Card,Cancelled,0
+O-1010,2026-03-14,C-009,Marketplace,BA,Pix,Delivered,7
+O-1011,2026-03-22,C-010,E-commerce,PR,Credit Card,Delivered,3
+O-1012,2026-04-04,C-011,Store,SC,Pix,Delivered,1
