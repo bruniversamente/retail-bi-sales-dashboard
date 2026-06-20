@@ -1,4 +1,4 @@
-# Medidas DAX sugeridas
+﻿# Medidas DAX sugeridas
 
 As medidas abaixo foram pensadas para o modelo no Power BI após carregar as tabelas analíticas do projeto.
 
@@ -6,27 +6,39 @@ As medidas abaixo foram pensadas para o modelo no Power BI após carregar as tab
 
 ```DAX
 Receita Bruta =
-SUM(fact_sales[gross_revenue])
+CALCULATE(
+    SUM(fact_sales[gross_revenue]),
+    fact_sales[order_status] = "Delivered"
+)
 ```
 
 ```DAX
-Receita Liquida =
-SUM(fact_sales[net_revenue])
+Receita Líquida =
+CALCULATE(
+    SUM(fact_sales[net_revenue]),
+    fact_sales[order_status] = "Delivered"
+)
 ```
 
 ```DAX
 COGS =
-SUM(fact_sales[cogs])
+CALCULATE(
+    SUM(fact_sales[cogs]),
+    fact_sales[order_status] = "Delivered"
+)
 ```
 
 ```DAX
 Margem Bruta =
-SUM(fact_sales[gross_margin])
+CALCULATE(
+    SUM(fact_sales[gross_margin]),
+    fact_sales[order_status] = "Delivered"
+)
 ```
 
 ```DAX
 Margem % =
-DIVIDE([Margem Bruta], [Receita Liquida])
+DIVIDE([Margem Bruta], [Receita Líquida])
 ```
 
 ```DAX
@@ -38,13 +50,16 @@ CALCULATE(
 ```
 
 ```DAX
-Ticket Medio =
-DIVIDE([Receita Liquida], [Pedidos Entregues])
+Ticket Médio =
+DIVIDE([Receita Líquida], [Pedidos Entregues])
 ```
 
 ```DAX
 Unidades Vendidas =
-SUM(fact_sales[quantity])
+CALCULATE(
+    SUM(fact_sales[quantity]),
+    fact_sales[order_status] = "Delivered"
+)
 ```
 
 ## Medidas de metas
@@ -56,34 +71,36 @@ SUM(fact_targets[revenue_target])
 
 ```DAX
 Aderencia Meta Receita =
-DIVIDE([Receita Liquida], [Meta Receita])
+DIVIDE([Receita Líquida], [Meta Receita])
 ```
 
 ```DAX
 Desvio Meta Receita =
-[Receita Liquida] - [Meta Receita]
+[Receita Líquida] - [Meta Receita]
 ```
 
 ## Medidas de suporte
 
 ```DAX
-Desconto Medio =
+Desconto Médio =
 AVERAGE(fact_sales[discount_pct])
 ```
 
 ```DAX
-Receita Liquida M-1 =
+Receita Líquida M-1 =
 CALCULATE(
-    [Receita Liquida],
+    [Receita Líquida],
     DATEADD(dim_calendar[date], -1, MONTH)
 )
 ```
 
 ```DAX
 Crescimento Receita MoM =
-DIVIDE([Receita Liquida] - [Receita Liquida M-1], [Receita Liquida M-1])
+DIVIDE([Receita Líquida] - [Receita Líquida M-1], [Receita Líquida M-1])
 ```
 
 ## Observacao
 
-Para o calculo de crescimento mensal, recomenda-se criar uma tabela calendario (`dim_calendar`) no Power BI e relacionar com a data do pedido.
+Para o cálculo de crescimento mensal, recomenda-se criar uma tabela calendário (`dim_calendar`) no Power BI e relacionar com a data do pedido.
+
+Pedidos cancelados devem ficar fora das medidas executivas de receita, margem e unidades vendidas. Eles podem aparecer em uma página de qualidade dos dados como receita potencial excluída.

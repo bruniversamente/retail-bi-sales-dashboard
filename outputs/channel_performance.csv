@@ -1,0 +1,4 @@
+sales_channel,net_revenue,gross_margin,gross_margin_pct,delivered_orders,revenue_share
+Store,370978.49,113650.37,0.3064,320,0.343
+Marketplace,359338.99,112114.41,0.312,312,0.3323
+E-commerce,351137.4,109218.2,0.311,312,0.3247

@@ -1,0 +1,413 @@
+{
+  "publication_status": "Approved",
+  "publication_reason": "Sem falhas cr\u00edticas; 256 warnings monitorados fora da receita executiva.",
+  "kpis": {
+    "net_revenue": 1081454.88,
+    "gross_margin": 334982.98,
+    "gross_margin_pct": 0.3098,
+    "delivered_orders": 944.0,
+    "average_ticket": 1145.61,
+    "units_sold": 6035.0
+  },
+  "dq_summary": [
+    {
+      "rule_name": "discount_outside_range",
+      "severity": "Critical",
+      "failed_records": 0
+    },
+    {
+      "rule_name": "items_without_valid_product",
+      "severity": "Critical",
+      "failed_records": 0
+    },
+    {
+      "rule_name": "non_positive_price_or_cost",
+      "severity": "Critical",
+      "failed_records": 0
+    },
+    {
+      "rule_name": "orders_without_items",
+      "severity": "Critical",
+      "failed_records": 0
+    },
+    {
+      "rule_name": "orders_without_valid_customer",
+      "severity": "Critical",
+      "failed_records": 0
+    },
+    {
+      "rule_name": "cancelled_orders_with_potential_revenue",
+      "severity": "Warning",
+      "failed_records": 256
+    }
+  ],
+  "monthly_performance": [
+    {
+      "order_month": "2026-01",
+      "net_revenue": 166963.5,
+      "gross_margin": 52926.93,
+      "gross_margin_pct": 0.317,
+      "delivered_orders": 155
+    },
+    {
+      "order_month": "2026-02",
+      "net_revenue": 150968.85,
+      "gross_margin": 45938.32,
+      "gross_margin_pct": 0.3043,
+      "delivered_orders": 130
+    },
+    {
+      "order_month": "2026-03",
+      "net_revenue": 177233.53,
+      "gross_margin": 56095.99,
+      "gross_margin_pct": 0.3165,
+      "delivered_orders": 158
+    },
+    {
+      "order_month": "2026-04",
+      "net_revenue": 197541.1,
+      "gross_margin": 61051.49,
+      "gross_margin_pct": 0.3091,
+      "delivered_orders": 172
+    },
+    {
+      "order_month": "2026-05",
+      "net_revenue": 182024.39,
+      "gross_margin": 55903.32,
+      "gross_margin_pct": 0.3071,
+      "delivered_orders": 153
+    },
+    {
+      "order_month": "2026-06",
+      "net_revenue": 206723.51,
+      "gross_margin": 63066.93,
+      "gross_margin_pct": 0.3051,
+      "delivered_orders": 176
+    }
+  ],
+  "channel_performance": [
+    {
+      "sales_channel": "Store",
+      "net_revenue": 370978.49,
+      "gross_margin": 113650.37,
+      "gross_margin_pct": 0.3064,
+      "delivered_orders": 320,
+      "revenue_share": 0.343
+    },
+    {
+      "sales_channel": "Marketplace",
+      "net_revenue": 359338.99,
+      "gross_margin": 112114.41,
+      "gross_margin_pct": 0.312,
+      "delivered_orders": 312,
+      "revenue_share": 0.3323
+    },
+    {
+      "sales_channel": "E-commerce",
+      "net_revenue": 351137.4,
+      "gross_margin": 109218.2,
+      "gross_margin_pct": 0.311,
+      "delivered_orders": 312,
+      "revenue_share": 0.3247
+    }
+  ],
+  "category_performance": [
+    {
+      "category": "Casa",
+      "net_revenue": 354799.54,
+      "gross_margin": 99075.34,
+      "gross_margin_pct": 0.2792,
+      "units_sold": 1589.0
+    },
+    {
+      "category": "Eletronicos",
+      "net_revenue": 336228.59,
+      "gross_margin": 107812.49,
+      "gross_margin_pct": 0.3207,
+      "units_sold": 1504.0
+    },
+    {
+      "category": "Esporte",
+      "net_revenue": 192897.12,
+      "gross_margin": 50043.12,
+      "gross_margin_pct": 0.2594,
+      "units_sold": 1079.0
+    },
+    {
+      "category": "Moda",
+      "net_revenue": 112531.81,
+      "gross_margin": 43750.76,
+      "gross_margin_pct": 0.3888,
+      "units_sold": 939.0
+    },
+    {
+      "category": "Beleza",
+      "net_revenue": 84997.82,
+      "gross_margin": 34301.27,
+      "gross_margin_pct": 0.4036,
+      "units_sold": 924.0
+    }
+  ],
+  "target_tracking": [
+    {
+      "target_month": "2026-01",
+      "sales_channel": "E-commerce",
+      "revenue_target": 51706.89,
+      "realized_revenue": 49638.65,
+      "revenue_target_attainment": 0.96,
+      "margin_target_pct": 0.3242,
+      "realized_margin_pct": 0.3242
+    },
+    {
+      "target_month": "2026-01",
+      "sales_channel": "Marketplace",
+      "revenue_target": 45858.12,
+      "realized_revenue": 45399.56,
+      "revenue_target_attainment": 0.99,
+      "margin_target_pct": 0.3186,
+      "realized_margin_pct": 0.3236
+    },
+    {
+      "target_month": "2026-01",
+      "sales_channel": "Store",
+      "revenue_target": 74922.18,
+      "realized_revenue": 71925.29,
+      "revenue_target_attainment": 0.96,
+      "margin_target_pct": 0.3179,
+      "realized_margin_pct": 0.3079
+    },
+    {
+      "target_month": "2026-02",
+      "sales_channel": "E-commerce",
+      "revenue_target": 53649.03,
+      "realized_revenue": 51503.1,
+      "revenue_target_attainment": 0.96,
+      "margin_target_pct": 0.3119,
+      "realized_margin_pct": 0.3019
+    },
+    {
+      "target_month": "2026-02",
+      "sales_channel": "Marketplace",
+      "revenue_target": 43273.2,
+      "realized_revenue": 46302.31,
+      "revenue_target_attainment": 1.07,
+      "margin_target_pct": 0.2905,
+      "realized_margin_pct": 0.3055
+    },
+    {
+      "target_month": "2026-02",
+      "sales_channel": "Store",
+      "revenue_target": 53700.47,
+      "realized_revenue": 53163.44,
+      "revenue_target_attainment": 0.99,
+      "margin_target_pct": 0.3006,
+      "realized_margin_pct": 0.3056
+    },
+    {
+      "target_month": "2026-03",
+      "sales_channel": "E-commerce",
+      "revenue_target": 64355.62,
+      "realized_revenue": 61781.42,
+      "revenue_target_attainment": 0.96,
+      "margin_target_pct": 0.3,
+      "realized_margin_pct": 0.315
+    },
+    {
+      "target_month": "2026-03",
+      "sales_channel": "Marketplace",
+      "revenue_target": 61176.93,
+      "realized_revenue": 65459.31,
+      "revenue_target_attainment": 1.07,
+      "margin_target_pct": 0.3151,
+      "realized_margin_pct": 0.3201
+    },
+    {
+      "target_month": "2026-03",
+      "sales_channel": "Store",
+      "revenue_target": 46722.2,
+      "realized_revenue": 49992.8,
+      "revenue_target_attainment": 1.07,
+      "margin_target_pct": 0.2987,
+      "realized_margin_pct": 0.3137
+    },
+    {
+      "target_month": "2026-04",
+      "sales_channel": "E-commerce",
+      "revenue_target": 56917.35,
+      "realized_revenue": 56348.2,
+      "revenue_target_attainment": 0.99,
+      "margin_target_pct": 0.3295,
+      "realized_margin_pct": 0.3095
+    },
+    {
+      "target_month": "2026-04",
+      "sales_channel": "Marketplace",
+      "revenue_target": 67676.76,
+      "realized_revenue": 64969.71,
+      "revenue_target_attainment": 0.96,
+      "margin_target_pct": 0.2991,
+      "realized_margin_pct": 0.3041
+    },
+    {
+      "target_month": "2026-04",
+      "sales_channel": "Store",
+      "revenue_target": 74003.07,
+      "realized_revenue": 76223.19,
+      "revenue_target_attainment": 1.03,
+      "margin_target_pct": 0.3229,
+      "realized_margin_pct": 0.3129
+    },
+    {
+      "target_month": "2026-05",
+      "sales_channel": "E-commerce",
+      "revenue_target": 79746.45,
+      "realized_revenue": 72569.33,
+      "revenue_target_attainment": 0.91,
+      "margin_target_pct": 0.3015,
+      "realized_margin_pct": 0.3065
+    },
+    {
+      "target_month": "2026-05",
+      "sales_channel": "Marketplace",
+      "revenue_target": 55392.76,
+      "realized_revenue": 50407.44,
+      "revenue_target_attainment": 0.91,
+      "margin_target_pct": 0.2998,
+      "realized_margin_pct": 0.3148
+    },
+    {
+      "target_month": "2026-05",
+      "sales_channel": "Store",
+      "revenue_target": 55184.68,
+      "realized_revenue": 59047.62,
+      "revenue_target_attainment": 1.07,
+      "margin_target_pct": 0.2864,
+      "realized_margin_pct": 0.3014
+    },
+    {
+      "target_month": "2026-06",
+      "sales_channel": "E-commerce",
+      "revenue_target": 59895.71,
+      "realized_revenue": 59296.7,
+      "revenue_target_attainment": 0.99,
+      "margin_target_pct": 0.306,
+      "realized_margin_pct": 0.311
+    },
+    {
+      "target_month": "2026-06",
+      "sales_channel": "Marketplace",
+      "revenue_target": 84272.45,
+      "realized_revenue": 86800.66,
+      "revenue_target_attainment": 1.03,
+      "margin_target_pct": 0.3276,
+      "realized_margin_pct": 0.3076
+    },
+    {
+      "target_month": "2026-06",
+      "sales_channel": "Store",
+      "revenue_target": 56659.97,
+      "realized_revenue": 60626.15,
+      "revenue_target_attainment": 1.07,
+      "margin_target_pct": 0.2807,
+      "realized_margin_pct": 0.2957
+    }
+  ],
+  "product_ranking": [
+    {
+      "product_name": "Caixa de Som Portatil",
+      "category": "Eletronicos",
+      "units_sold": 494.0,
+      "net_revenue": 231608.58,
+      "gross_margin": 63648.48,
+      "gross_margin_pct": 0.2748
+    },
+    {
+      "product_name": "Air Fryer Digital 4L",
+      "category": "Casa",
+      "units_sold": 498.0,
+      "net_revenue": 187441.13,
+      "gross_margin": 45511.01,
+      "gross_margin_pct": 0.2428
+    },
+    {
+      "product_name": "Bicicleta Ergometrica Compacta",
+      "category": "Esporte",
+      "units_sold": 556.0,
+      "net_revenue": 173174.25,
+      "gross_margin": 39734.25,
+      "gross_margin_pct": 0.2294
+    },
+    {
+      "product_name": "Panela Antiaderente 5L",
+      "category": "Casa",
+      "units_sold": 548.0,
+      "net_revenue": 128713.64,
+      "gross_margin": 35553.56,
+      "gross_margin_pct": 0.2762
+    },
+    {
+      "product_name": "Tenis Urbano",
+      "category": "Moda",
+      "units_sold": 456.0,
+      "net_revenue": 85033.6,
+      "gross_margin": 31225.55,
+      "gross_margin_pct": 0.3672
+    },
+    {
+      "product_name": "Secador Compacto",
+      "category": "Beleza",
+      "units_sold": 503.0,
+      "net_revenue": 75135.49,
+      "gross_margin": 28859.44,
+      "gross_margin_pct": 0.3841
+    },
+    {
+      "product_name": "Carregador Turbo USB-C",
+      "category": "Eletronicos",
+      "units_sold": 499.0,
+      "net_revenue": 61080.43,
+      "gross_margin": 25152.43,
+      "gross_margin_pct": 0.4118
+    },
+    {
+      "product_name": "Fone Bluetooth Basic",
+      "category": "Eletronicos",
+      "units_sold": 511.0,
+      "net_revenue": 43539.58,
+      "gross_margin": 19011.58,
+      "gross_margin_pct": 0.4367
+    },
+    {
+      "product_name": "Kit Organizadores",
+      "category": "Casa",
+      "units_sold": 543.0,
+      "net_revenue": 38644.77,
+      "gross_margin": 18010.77,
+      "gross_margin_pct": 0.4661
+    },
+    {
+      "product_name": "Cinto Casual",
+      "category": "Moda",
+      "units_sold": 483.0,
+      "net_revenue": 27498.21,
+      "gross_margin": 12525.21,
+      "gross_margin_pct": 0.4555
+    },
+    {
+      "product_name": "Garrafa Termica 700ml",
+      "category": "Esporte",
+      "units_sold": 523.0,
+      "net_revenue": 19722.87,
+      "gross_margin": 10308.87,
+      "gross_margin_pct": 0.5227
+    },
+    {
+      "product_name": "Sabonete Liquido Premium",
+      "category": "Beleza",
+      "units_sold": 421.0,
+      "net_revenue": 9862.33,
+      "gross_margin": 5441.83,
+      "gross_margin_pct": 0.5518
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail BI Sales Dashboard</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #5f6b7a;
+      --line: #d8dee8;
+      --paper: #f6f7f9;
+      --panel: #ffffff;
+      --green: #027a48;
+      --red: #b42318;
+      --blue: #175cd3;
+      --amber: #b54708;
+      --teal: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+    }
+    main {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 28px 0 40px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: end;
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.75rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    p { margin: 0; color: var(--muted); line-height: 1.5; }
+    .status, .tile, section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .status { min-width: 245px; padding: 16px; }
+    .status span {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #fff;
+      font-weight: 850;
+      margin-bottom: 10px;
+    }
+    .approved { background: var(--green); }
+    .blocked { background: var(--red); }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .tile { padding: 15px; min-height: 112px; }
+    .label { color: var(--muted); font-size: .8rem; font-weight: 800; }
+    .value { font-size: 1.72rem; line-height: 1.12; font-weight: 900; margin: 10px 0 6px; white-space: nowrap; }
+    .note { color: var(--muted); font-size: .84rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    section { padding: 16px; overflow: hidden; }
+    h2 { margin: 0 0 12px; font-size: 1rem; letter-spacing: 0; }
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    th, td { padding: 10px 8px; border-bottom: 1px solid #edf0f3; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: .76rem; text-transform: uppercase; }
+    .bar-row { display: grid; grid-template-columns: 112px 1fr 108px; gap: 10px; align-items: center; margin: 14px 0; }
+    .bar-label, .bar-value { color: var(--muted); font-size: .86rem; }
+    .bar-value { text-align: right; }
+    .bar-track { height: 14px; background: #e7ebf0; border-radius: 999px; overflow: hidden; }
+    .bar-track span { display: block; height: 100%; background: var(--blue); }
+    .badge { display: inline-flex; border-radius: 999px; padding: 4px 8px; font-weight: 850; font-size: .72rem; }
+    .critical { color: var(--red); background: #fef3f2; }
+    .warning { color: var(--amber); background: #fffaeb; }
+    .footnote { margin-top: 12px; color: var(--muted); font-size: .78rem; }
+    @media (max-width: 900px) {
+      header, .grid { grid-template-columns: 1fr; }
+      .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      main { width: min(100vw - 20px, 1180px); padding-top: 16px; }
+      .kpis { grid-template-columns: 1fr; }
+      section { overflow-x: auto; }
+      table { min-width: 680px; }
+      .bar-row { grid-template-columns: 94px 1fr; }
+      .bar-value { grid-column: 2; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>Retail BI Sales Dashboard</h1>
+      <p>Executive sales, margin and target view for a multichannel retail operation.</p>
+    </div>
+    <div class="status">
+      <span class="approved">Approved</span>
+      <p>No critical failures; 256 warnings monitored outside executive revenue.</p>
+    </div>
+  </header>
+
+  <div class="kpis">
+    <div class="tile"><div class="label">Net revenue</div><div class="value">R$ 1.081.455</div><div class="note">delivered orders only</div></div>
+    <div class="tile"><div class="label">Gross margin</div><div class="value">R$ 334.983</div><div class="note">31,0% margin</div></div>
+    <div class="tile"><div class="label">Delivered orders</div><div class="value">944</div><div class="note">valid commercial base</div></div>
+    <div class="tile"><div class="label">Average ticket</div><div class="value">R$ 1.146</div><div class="note">net revenue / orders</div></div>
+    <div class="tile"><div class="label">Units sold</div><div class="value">6035</div><div class="note">delivered items</div></div>
+  </div>
+
+  <div class="grid">
+    <section>
+      <h2>Revenue by channel</h2>
+      
+        <div class="bar-row">
+          <div class="bar-label">Store</div>
+          <div class="bar-track"><span style="width:34.3%"></span></div>
+          <div class="bar-value">R$ 370.978</div>
+        </div>
+        
+
+        <div class="bar-row">
+          <div class="bar-label">Marketplace</div>
+          <div class="bar-track"><span style="width:33.2%"></span></div>
+          <div class="bar-value">R$ 359.339</div>
+        </div>
+        
+
+        <div class="bar-row">
+          <div class="bar-label">E-commerce</div>
+          <div class="bar-track"><span style="width:32.5%"></span></div>
+          <div class="bar-value">R$ 351.137</div>
+        </div>
+        
+    </section>
+    <section>
+      <h2>Target tracking</h2>
+      <table>
+        <thead><tr><th>Month</th><th>Canal</th><th>Revenue attainment</th><th>Margin</th></tr></thead>
+        <tbody>
+        <tr>
+          <td>2026-01</td>
+          <td>E-commerce</td>
+          <td>96,0%</td>
+          <td>32,4%</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-01</td>
+          <td>Marketplace</td>
+          <td>99,0%</td>
+          <td>32,4%</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-01</td>
+          <td>Store</td>
+          <td>96,0%</td>
+          <td>30,8%</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-02</td>
+          <td>E-commerce</td>
+          <td>96,0%</td>
+          <td>30,2%</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-02</td>
+          <td>Marketplace</td>
+          <td>107,0%</td>
+          <td>30,6%</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-02</td>
+          <td>Store</td>
+          <td>99,0%</td>
+          <td>30,6%</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-03</td>
+          <td>E-commerce</td>
+          <td>96,0%</td>
+          <td>31,5%</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-03</td>
+          <td>Marketplace</td>
+          <td>107,0%</td>
+          <td>32,0%</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <div class="grid">
+    <section>
+      <h2>Monthly performance</h2>
+      <table>
+        <thead><tr><th>Month</th><th>Net revenue</th><th>Margin</th><th>Orders</th></tr></thead>
+        <tbody>
+        <tr>
+          <td>2026-01</td>
+          <td>R$ 166.964</td>
+          <td>31,7%</td>
+          <td>155</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-02</td>
+          <td>R$ 150.969</td>
+          <td>30,4%</td>
+          <td>130</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-03</td>
+          <td>R$ 177.234</td>
+          <td>31,6%</td>
+          <td>158</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-04</td>
+          <td>R$ 197.541</td>
+          <td>30,9%</td>
+          <td>172</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-05</td>
+          <td>R$ 182.024</td>
+          <td>30,7%</td>
+          <td>153</td>
+        </tr>
+        
+
+        <tr>
+          <td>2026-06</td>
+          <td>R$ 206.724</td>
+          <td>30,5%</td>
+          <td>176</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Category performance</h2>
+      <table>
+        <thead><tr><th>Category</th><th>Net revenue</th><th>Margin</th><th>Units</th></tr></thead>
+        <tbody>
+        <tr>
+          <td>Home</td>
+          <td>R$ 354.800</td>
+          <td>27,9%</td>
+          <td>1589</td>
+        </tr>
+        
+
+        <tr>
+          <td>Electronics</td>
+          <td>R$ 336.229</td>
+          <td>32,1%</td>
+          <td>1504</td>
+        </tr>
+        
+
+        <tr>
+          <td>Sports</td>
+          <td>R$ 192.897</td>
+          <td>25,9%</td>
+          <td>1079</td>
+        </tr>
+        
+
+        <tr>
+          <td>Fashion</td>
+          <td>R$ 112.532</td>
+          <td>38,9%</td>
+          <td>939</td>
+        </tr>
+        
+
+        <tr>
+          <td>Beauty</td>
+          <td>R$ 84.998</td>
+          <td>40,4%</td>
+          <td>924</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <section>
+    <h2>Data quality gate</h2>
+    <table>
+      <thead><tr><th>Rule</th><th>Severity</th><th>Failed records</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>discount_outside_range</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>0</td>
+        </tr>
+        
+
+        <tr>
+          <td>items_without_valid_product</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>0</td>
+        </tr>
+        
+
+        <tr>
+          <td>non_positive_price_or_cost</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>0</td>
+        </tr>
+        
+
+        <tr>
+          <td>orders_without_items</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>0</td>
+        </tr>
+        
+
+        <tr>
+          <td>orders_without_valid_customer</td>
+          <td><span class="badge critical">Critical</span></td>
+          <td>0</td>
+        </tr>
+        
+
+        <tr>
+          <td>cancelled_orders_with_potential_revenue</td>
+          <td><span class="badge warning">Warning</span></td>
+          <td>256</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="footnote">Critical failures block publication. Cancelled order revenue is monitored as a warning because these orders are excluded from executive revenue.</p>
+  </section>
+</main>
+</body>
+</html>

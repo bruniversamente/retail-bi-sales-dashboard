@@ -1,6 +1,6 @@
 """Generate synthetic retail data for the BI portfolio project.
 
-The script creates a larger local dataset under data/generated/.
+The script refreshes the local sample dataset under data/.
 It does not use real or sensitive data.
 """
 
@@ -14,7 +14,7 @@ from pathlib import Path
 random.seed(42)
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "data" / "generated"
+OUT = ROOT / "data"
 OUT.mkdir(parents=True, exist_ok=True)
 
 CHANNELS = ["E-commerce", "Store", "Marketplace"]
@@ -116,17 +116,41 @@ def generate_orders(customers: list[dict[str, object]], n: int = 1200) -> tuple[
     return orders, items
 
 
-def generate_targets() -> list[dict[str, object]]:
+def generate_targets(orders: list[dict[str, object]], items: list[dict[str, object]]) -> list[dict[str, object]]:
+    order_lookup = {
+        order["order_id"]: {
+            "target_month": month_key(date.fromisoformat(str(order["order_date"]))),
+            "sales_channel": order["sales_channel"],
+            "order_status": order["order_status"],
+        }
+        for order in orders
+    }
+    actuals: dict[tuple[str, str], dict[str, float]] = {}
+    for item in items:
+        order = order_lookup[item["order_id"]]
+        if order["order_status"] != "Delivered":
+            continue
+        key = (order["target_month"], order["sales_channel"])
+        actuals.setdefault(key, {"revenue": 0.0, "margin": 0.0})
+        revenue = float(item["quantity"]) * float(item["unit_price"]) * (1 - float(item["discount_pct"]))
+        margin = revenue - float(item["quantity"]) * float(item["unit_cost"])
+        actuals[key]["revenue"] += revenue
+        actuals[key]["margin"] += margin
+
     rows = []
     for month in ["2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06"]:
         for channel in CHANNELS:
-            base = {"E-commerce": 55000, "Store": 42000, "Marketplace": 38000}[channel]
+            actual = actuals.get((month, channel), {"revenue": 0.0, "margin": 0.0})
+            target_attainment = random.choice([0.91, 0.96, 0.99, 1.03, 1.07, 1.12])
+            revenue_target = actual["revenue"] / target_attainment if actual["revenue"] else 0
+            actual_margin_pct = actual["margin"] / actual["revenue"] if actual["revenue"] else 0.3
+            margin_target_pct = min(max(actual_margin_pct + random.choice([-0.015, -0.005, 0.0, 0.01, 0.02]), 0.24), 0.38)
             rows.append(
                 {
                     "target_month": month,
                     "sales_channel": channel,
-                    "revenue_target": round(base * random.uniform(0.92, 1.12), 2),
-                    "margin_target_pct": random.choice([0.28, 0.30, 0.32, 0.34]),
+                    "revenue_target": round(revenue_target, 2),
+                    "margin_target_pct": round(margin_target_pct, 4),
                 }
             )
     return rows
@@ -144,13 +168,13 @@ def main() -> None:
         }
         for product_id, category, subcategory, product_name, _, _ in PRODUCTS
     ]
-    targets = generate_targets()
+    targets = generate_targets(orders, items)
 
-    write_csv(OUT / "customers.csv", list(customers[0].keys()), customers)
-    write_csv(OUT / "orders.csv", list(orders[0].keys()), orders)
-    write_csv(OUT / "order_items.csv", list(items[0].keys()), items)
-    write_csv(OUT / "products.csv", list(product_rows[0].keys()), product_rows)
-    write_csv(OUT / "targets.csv", list(targets[0].keys()), targets)
+    write_csv(OUT / "sample_customers.csv", list(customers[0].keys()), customers)
+    write_csv(OUT / "sample_orders.csv", list(orders[0].keys()), orders)
+    write_csv(OUT / "sample_order_items.csv", list(items[0].keys()), items)
+    write_csv(OUT / "sample_products.csv", list(product_rows[0].keys()), product_rows)
+    write_csv(OUT / "sample_targets.csv", list(targets[0].keys()), targets)
 
     print(f"Generated files in {OUT}")
     print(f"Orders: {len(orders)} | Items: {len(items)} | Customers: {len(customers)}")

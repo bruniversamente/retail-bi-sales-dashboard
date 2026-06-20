@@ -1,4 +1,4 @@
-# Regras de negócio
+﻿# Regras de negócio
 
 ## Escopo da análise
 
@@ -58,6 +58,23 @@ ticket_medio = receita_liquida / quantidade_de_pedidos_entregues
 - A receita e a margem devem ser calculadas no nível do item do pedido.
 - As metas são avaliadas por mês e canal.
 - A margem percentual deve ignorar divisões por zero.
+- O dashboard executivo pode ser publicado somente quando não houver falhas críticas de qualidade.
+
+## Qualidade dos dados
+
+Falhas críticas bloqueiam publicação:
+
+- pedidos sem itens;
+- itens sem produto válido;
+- pedidos sem cliente válido;
+- descontos fora de 0 a 1;
+- preços ou custos menores ou iguais a zero.
+
+Warnings não bloqueiam publicação por si só, mas devem ser monitorados:
+
+- pedidos cancelados com receita potencial.
+
+Na execução atual, o status de publicação é `Approved`: zero falhas críticas e 256 warnings monitorados fora dos KPIs executivos.
 
 ## Perguntas respondidas pelo dashboard
 

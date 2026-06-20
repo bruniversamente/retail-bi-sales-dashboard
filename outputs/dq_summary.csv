@@ -1,0 +1,7 @@
+rule_name,severity,failed_records
+discount_outside_range,Critical,0
+items_without_valid_product,Critical,0
+non_positive_price_or_cost,Critical,0
+orders_without_items,Critical,0
+orders_without_valid_customer,Critical,0
+cancelled_orders_with_potential_revenue,Warning,256

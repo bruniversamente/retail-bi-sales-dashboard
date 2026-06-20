@@ -21,15 +21,21 @@ SQL_FILES = [
 
 def main() -> None:
     con = duckdb.connect(str(DB_PATH))
-    for sql_file in SQL_FILES:
-        print(f"\n--- Running {sql_file.name} ---")
-        sql = sql_file.read_text(encoding="utf-8")
-        result = con.execute(sql)
-        try:
-            print(result.fetchdf())
-        except Exception:
-            print("Script executed.")
-    con.close()
+    try:
+        for sql_file in SQL_FILES:
+            print(f"\n--- Running {sql_file.name} ---")
+            sql = sql_file.read_text(encoding="utf-8")
+            statements = [statement.strip() for statement in sql.split(";") if statement.strip()]
+            for statement in statements:
+                result = con.execute(statement)
+                first_sql_line = next(
+                    (line.strip().lower() for line in statement.splitlines() if line.strip() and not line.strip().startswith("--")),
+                    "",
+                )
+                if first_sql_line.startswith("select") or first_sql_line.startswith("with"):
+                    print(result.fetchdf())
+    finally:
+        con.close()
     print(f"\nDatabase created at: {DB_PATH}")
 
 

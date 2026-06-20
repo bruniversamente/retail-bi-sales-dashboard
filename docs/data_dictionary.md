@@ -1,4 +1,4 @@
-# Dicionário de dados
+﻿# Dicionário de dados
 
 ## `sample_orders.csv`
 
@@ -52,3 +52,16 @@
 | `sales_channel` | Canal de venda. |
 | `revenue_target` | Meta de receita líquida. |
 | `margin_target_pct` | Meta de margem percentual. |
+
+## Saídas em `outputs/`
+
+| Arquivo | Descricao |
+|---|---|
+| `kpi_summary.csv` | KPIs executivos consolidados. |
+| `monthly_performance.csv` | Receita, margem e pedidos por mês. |
+| `channel_performance.csv` | Receita, margem e participação por canal. |
+| `category_performance.csv` | Receita, margem e unidades por categoria. |
+| `target_tracking.csv` | Realizado vs meta por mês e canal. |
+| `product_ranking.csv` | Ranking de produtos por receita. |
+| `dq_summary.csv` | Regras de qualidade, severidade e falhas. |
+| `dashboard_data.json` | Base compacta usada pelo dashboard HTML. |

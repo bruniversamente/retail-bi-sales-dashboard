@@ -1,12 +1,251 @@
 customer_id,customer_segment,city,state,signup_date
-C-001,Recurring,Curitiba,PR,2025-06-12
-C-002,New,Sao Paulo,SP,2025-12-30
-C-003,New,Rio de Janeiro,RJ,2026-01-02
-C-004,Recurring,Florianopolis,SC,2025-04-18
-C-005,Recurring,Curitiba,PR,2025-02-05
-C-006,New,Belo Horizonte,MG,2026-01-21
-C-007,Recurring,Sao Paulo,SP,2025-03-11
-C-008,New,Porto Alegre,RS,2026-02-28
-C-009,New,Salvador,BA,2026-02-20
-C-010,Recurring,Curitiba,PR,2024-11-09
-C-011,New,Joinville,SC,2026-03-10
+C-0001,New,Uberlandia,MG,2025-02-27
+C-0002,New,Santos,SP,2025-04-25
+C-0003,New,Maringa,PR,2025-12-13
+C-0004,New,Florianopolis,SC,2025-01-17
+C-0005,New,Santos,SP,2025-04-30
+C-0006,Recurring,Sao Paulo,SP,2026-01-02
+C-0007,Recurring,Florianopolis,SC,2025-10-29
+C-0008,New,Feira de Santana,BA,2026-02-17
+C-0009,New,Rio de Janeiro,RJ,2025-05-23
+C-0010,New,Salvador,BA,2025-06-22
+C-0011,Recurring,Joinville,SC,2025-02-19
+C-0012,New,Caxias do Sul,RS,2025-05-16
+C-0013,Recurring,Porto Alegre,RS,2025-03-05
+C-0014,Recurring,Porto Alegre,RS,2025-05-31
+C-0015,New,Belo Horizonte,MG,2025-02-05
+C-0016,New,Salvador,BA,2025-05-29
+C-0017,Recurring,Feira de Santana,BA,2025-02-21
+C-0018,Recurring,Florianopolis,SC,2025-11-22
+C-0019,New,Niteroi,RJ,2025-07-01
+C-0020,New,Belo Horizonte,MG,2025-12-16
+C-0021,New,Porto Alegre,RS,2026-01-09
+C-0022,Recurring,Florianopolis,SC,2025-07-14
+C-0023,New,Belo Horizonte,MG,2025-06-16
+C-0024,Recurring,Feira de Santana,BA,2025-01-17
+C-0025,New,Niteroi,RJ,2025-02-03
+C-0026,Recurring,Campinas,SP,2025-12-02
+C-0027,New,Uberlandia,MG,2025-08-23
+C-0028,Recurring,Santos,SP,2025-05-07
+C-0029,Recurring,Caxias do Sul,RS,2025-08-08
+C-0030,Recurring,Sao Paulo,SP,2025-03-12
+C-0031,New,Salvador,BA,2025-01-25
+C-0032,Recurring,Belo Horizonte,MG,2025-03-23
+C-0033,Recurring,Joinville,SC,2025-07-15
+C-0034,New,Caxias do Sul,RS,2025-01-06
+C-0035,Recurring,Salvador,BA,2025-11-25
+C-0036,New,Niteroi,RJ,2025-08-11
+C-0037,Recurring,Maringa,PR,2026-01-05
+C-0038,New,Feira de Santana,BA,2025-04-02
+C-0039,New,Salvador,BA,2025-11-24
+C-0040,New,Rio de Janeiro,RJ,2026-01-26
+C-0041,Recurring,Porto Alegre,RS,2025-06-15
+C-0042,Recurring,Curitiba,PR,2025-07-05
+C-0043,New,Curitiba,PR,2025-05-04
+C-0044,New,Belo Horizonte,MG,2025-09-06
+C-0045,Recurring,Santos,SP,2025-12-04
+C-0046,Recurring,Sao Paulo,SP,2025-05-16
+C-0047,New,Caxias do Sul,RS,2026-01-22
+C-0048,Recurring,Joinville,SC,2025-12-10
+C-0049,New,Porto Alegre,RS,2025-08-20
+C-0050,Recurring,Sao Paulo,SP,2025-02-02
+C-0051,New,Porto Alegre,RS,2025-10-11
+C-0052,New,Curitiba,PR,2025-02-06
+C-0053,Recurring,Curitiba,PR,2025-01-17
+C-0054,Recurring,Caxias do Sul,RS,2025-05-02
+C-0055,New,Santos,SP,2025-10-04
+C-0056,Recurring,Porto Alegre,RS,2025-10-23
+C-0057,Recurring,Salvador,BA,2025-08-31
+C-0058,Recurring,Londrina,PR,2025-02-19
+C-0059,Recurring,Florianopolis,SC,2025-07-30
+C-0060,New,Belo Horizonte,MG,2025-12-01
+C-0061,Recurring,Florianopolis,SC,2026-01-08
+C-0062,New,Santos,SP,2025-04-09
+C-0063,Recurring,Florianopolis,SC,2025-03-13
+C-0064,New,Rio de Janeiro,RJ,2025-08-25
+C-0065,New,Florianopolis,SC,2026-02-18
+C-0066,New,Belo Horizonte,MG,2025-10-04
+C-0067,New,Feira de Santana,BA,2025-05-02
+C-0068,New,Joinville,SC,2025-09-04
+C-0069,Recurring,Curitiba,PR,2025-03-26
+C-0070,Recurring,Joinville,SC,2025-05-16
+C-0071,Recurring,Florianopolis,SC,2025-12-23
+C-0072,New,Sao Paulo,SP,2025-06-01
+C-0073,New,Caxias do Sul,RS,2026-01-12
+C-0074,Recurring,Maringa,PR,2025-01-26
+C-0075,New,Salvador,BA,2025-09-29
+C-0076,New,Porto Alegre,RS,2025-02-11
+C-0077,New,Caxias do Sul,RS,2025-02-04
+C-0078,New,Maringa,PR,2025-10-19
+C-0079,New,Caxias do Sul,RS,2025-01-21
+C-0080,Recurring,Uberlandia,MG,2025-10-26
+C-0081,Recurring,Sao Paulo,SP,2025-12-09
+C-0082,New,Niteroi,RJ,2025-07-22
+C-0083,New,Florianopolis,SC,2025-06-11
+C-0084,New,Florianopolis,SC,2025-11-15
+C-0085,Recurring,Porto Alegre,RS,2025-04-20
+C-0086,New,Niteroi,RJ,2025-02-05
+C-0087,Recurring,Niteroi,RJ,2025-03-22
+C-0088,New,Caxias do Sul,RS,2026-02-18
+C-0089,New,Uberlandia,MG,2025-02-23
+C-0090,New,Londrina,PR,2025-02-24
+C-0091,New,Niteroi,RJ,2025-11-06
+C-0092,Recurring,Santos,SP,2025-12-18
+C-0093,New,Florianopolis,SC,2025-05-09
+C-0094,Recurring,Belo Horizonte,MG,2025-08-05
+C-0095,New,Maringa,PR,2025-06-20
+C-0096,Recurring,Niteroi,RJ,2025-03-24
+C-0097,New,Porto Alegre,RS,2025-01-05
+C-0098,New,Uberlandia,MG,2025-03-18
+C-0099,New,Caxias do Sul,RS,2025-10-10
+C-0100,Recurring,Campinas,SP,2025-01-22
+C-0101,Recurring,Salvador,BA,2025-01-21
+C-0102,New,Uberlandia,MG,2025-05-08
+C-0103,Recurring,Salvador,BA,2025-10-14
+C-0104,New,Campinas,SP,2025-03-25
+C-0105,Recurring,Londrina,PR,2025-04-02
+C-0106,New,Feira de Santana,BA,2025-12-09
+C-0107,New,Campinas,SP,2026-02-08
+C-0108,Recurring,Salvador,BA,2025-01-20
+C-0109,Recurring,Campinas,SP,2026-02-23
+C-0110,New,Rio de Janeiro,RJ,2026-02-25
+C-0111,New,Londrina,PR,2025-12-04
+C-0112,New,Niteroi,RJ,2025-05-23
+C-0113,Recurring,Niteroi,RJ,2025-11-25
+C-0114,Recurring,Curitiba,PR,2025-03-01
+C-0115,New,Porto Alegre,RS,2025-05-16
+C-0116,Recurring,Caxias do Sul,RS,2025-08-11
+C-0117,New,Joinville,SC,2025-11-07
+C-0118,Recurring,Porto Alegre,RS,2025-04-08
+C-0119,New,Belo Horizonte,MG,2025-08-12
+C-0120,New,Niteroi,RJ,2025-08-09
+C-0121,New,Caxias do Sul,RS,2025-06-10
+C-0122,Recurring,Caxias do Sul,RS,2025-06-08
+C-0123,Recurring,Florianopolis,SC,2025-12-23
+C-0124,Recurring,Santos,SP,2025-08-04
+C-0125,Recurring,Uberlandia,MG,2025-03-31
+C-0126,New,Caxias do Sul,RS,2026-03-03
+C-0127,Recurring,Niteroi,RJ,2025-04-18
+C-0128,Recurring,Florianopolis,SC,2025-08-15
+C-0129,New,Porto Alegre,RS,2025-08-31
+C-0130,Recurring,Rio de Janeiro,RJ,2025-09-21
+C-0131,New,Feira de Santana,BA,2026-01-20
+C-0132,New,Sao Paulo,SP,2026-02-17
+C-0133,New,Londrina,PR,2025-01-24
+C-0134,New,Caxias do Sul,RS,2026-01-29
+C-0135,New,Joinville,SC,2025-11-19
+C-0136,New,Florianopolis,SC,2025-07-24
+C-0137,New,Belo Horizonte,MG,2025-12-19
+C-0138,New,Salvador,BA,2025-08-06
+C-0139,Recurring,Salvador,BA,2025-12-23
+C-0140,New,Caxias do Sul,RS,2025-05-08
+C-0141,Recurring,Santos,SP,2026-02-15
+C-0142,Recurring,Caxias do Sul,RS,2025-10-14
+C-0143,Recurring,Caxias do Sul,RS,2026-02-22
+C-0144,Recurring,Campinas,SP,2026-01-16
+C-0145,New,Niteroi,RJ,2026-01-20
+C-0146,Recurring,Salvador,BA,2026-02-03
+C-0147,New,Niteroi,RJ,2025-08-14
+C-0148,Recurring,Campinas,SP,2025-05-20
+C-0149,New,Porto Alegre,RS,2025-02-11
+C-0150,New,Santos,SP,2025-07-16
+C-0151,Recurring,Campinas,SP,2025-02-02
+C-0152,Recurring,Niteroi,RJ,2025-10-05
+C-0153,Recurring,Londrina,PR,2025-04-16
+C-0154,New,Feira de Santana,BA,2025-10-27
+C-0155,Recurring,Joinville,SC,2025-01-04
+C-0156,Recurring,Salvador,BA,2025-07-19
+C-0157,Recurring,Joinville,SC,2025-04-23
+C-0158,Recurring,Joinville,SC,2025-01-15
+C-0159,Recurring,Belo Horizonte,MG,2025-12-14
+C-0160,New,Salvador,BA,2025-08-28
+C-0161,New,Florianopolis,SC,2025-10-31
+C-0162,New,Uberlandia,MG,2025-08-08
+C-0163,Recurring,Campinas,SP,2025-01-26
+C-0164,Recurring,Niteroi,RJ,2025-04-19
+C-0165,Recurring,Niteroi,RJ,2026-01-25
+C-0166,Recurring,Feira de Santana,BA,2026-03-02
+C-0167,Recurring,Salvador,BA,2025-02-11
+C-0168,New,Uberlandia,MG,2025-10-04
+C-0169,New,Santos,SP,2025-11-29
+C-0170,New,Curitiba,PR,2026-01-22
+C-0171,New,Santos,SP,2026-03-06
+C-0172,New,Campinas,SP,2025-05-03
+C-0173,New,Uberlandia,MG,2025-02-28
+C-0174,Recurring,Belo Horizonte,MG,2025-05-12
+C-0175,New,Porto Alegre,RS,2025-11-07
+C-0176,New,Niteroi,RJ,2025-02-25
+C-0177,Recurring,Caxias do Sul,RS,2025-12-13
+C-0178,New,Belo Horizonte,MG,2025-04-12
+C-0179,Recurring,Maringa,PR,2025-12-23
+C-0180,New,Porto Alegre,RS,2026-02-17
+C-0181,Recurring,Niteroi,RJ,2025-09-30
+C-0182,Recurring,Curitiba,PR,2025-09-17
+C-0183,Recurring,Salvador,BA,2025-08-04
+C-0184,Recurring,Florianopolis,SC,2025-07-05
+C-0185,Recurring,Joinville,SC,2025-04-01
+C-0186,Recurring,Joinville,SC,2025-08-12
+C-0187,New,Feira de Santana,BA,2025-05-06
+C-0188,Recurring,Joinville,SC,2025-05-05
+C-0189,Recurring,Niteroi,RJ,2025-01-15
+C-0190,New,Campinas,SP,2025-09-07
+C-0191,Recurring,Feira de Santana,BA,2025-05-13
+C-0192,Recurring,Porto Alegre,RS,2025-12-26
+C-0193,New,Porto Alegre,RS,2025-04-08
+C-0194,Recurring,Belo Horizonte,MG,2025-07-28
+C-0195,Recurring,Uberlandia,MG,2025-09-01
+C-0196,New,Feira de Santana,BA,2025-01-09
+C-0197,New,Campinas,SP,2025-07-27
+C-0198,Recurring,Uberlandia,MG,2025-10-25
+C-0199,Recurring,Caxias do Sul,RS,2025-09-29
+C-0200,Recurring,Uberlandia,MG,2025-10-09
+C-0201,Recurring,Uberlandia,MG,2025-08-21
+C-0202,New,Rio de Janeiro,RJ,2025-04-29
+C-0203,New,Rio de Janeiro,RJ,2025-03-03
+C-0204,Recurring,Campinas,SP,2026-01-14
+C-0205,Recurring,Belo Horizonte,MG,2025-10-29
+C-0206,Recurring,Salvador,BA,2025-04-10
+C-0207,Recurring,Rio de Janeiro,RJ,2025-04-02
+C-0208,New,Uberlandia,MG,2025-10-01
+C-0209,Recurring,Maringa,PR,2025-01-28
+C-0210,Recurring,Sao Paulo,SP,2025-11-23
+C-0211,Recurring,Feira de Santana,BA,2025-01-07
+C-0212,Recurring,Florianopolis,SC,2025-08-14
+C-0213,Recurring,Curitiba,PR,2025-05-10
+C-0214,Recurring,Feira de Santana,BA,2025-02-03
+C-0215,New,Curitiba,PR,2025-10-23
+C-0216,Recurring,Sao Paulo,SP,2026-02-20
+C-0217,Recurring,Santos,SP,2025-03-02
+C-0218,New,Caxias do Sul,RS,2026-02-09
+C-0219,Recurring,Joinville,SC,2025-08-15
+C-0220,New,Rio de Janeiro,RJ,2025-10-19
+C-0221,New,Feira de Santana,BA,2025-04-17
+C-0222,New,Belo Horizonte,MG,2025-02-11
+C-0223,New,Sao Paulo,SP,2025-10-10
+C-0224,Recurring,Maringa,PR,2025-07-29
+C-0225,Recurring,Porto Alegre,RS,2025-08-29
+C-0226,Recurring,Santos,SP,2025-05-28
+C-0227,New,Salvador,BA,2025-08-21
+C-0228,New,Niteroi,RJ,2026-02-08
+C-0229,New,Maringa,PR,2025-10-06
+C-0230,New,Sao Paulo,SP,2025-05-17
+C-0231,Recurring,Maringa,PR,2025-03-26
+C-0232,Recurring,Uberlandia,MG,2026-02-27
+C-0233,Recurring,Maringa,PR,2025-08-28
+C-0234,Recurring,Joinville,SC,2025-05-20
+C-0235,New,Londrina,PR,2025-11-03
+C-0236,Recurring,Belo Horizonte,MG,2025-06-15
+C-0237,New,Maringa,PR,2025-04-28
+C-0238,New,Salvador,BA,2025-05-18
+C-0239,Recurring,Joinville,SC,2025-09-23
+C-0240,Recurring,Santos,SP,2025-10-27
+C-0241,New,Feira de Santana,BA,2025-09-09
+C-0242,Recurring,Niteroi,RJ,2025-07-29
+C-0243,New,Uberlandia,MG,2025-02-23
+C-0244,Recurring,Joinville,SC,2025-12-22
+C-0245,New,Uberlandia,MG,2025-07-25
+C-0246,Recurring,Londrina,PR,2025-06-11
+C-0247,Recurring,Maringa,PR,2026-01-31
+C-0248,Recurring,Feira de Santana,BA,2025-01-01
+C-0249,Recurring,Maringa,PR,2025-04-07
+C-0250,Recurring,Salvador,BA,2025-09-13

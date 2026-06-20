@@ -1,143 +1,160 @@
-# Dashboard Executivo de Vendas e Margem para Varejo
+# Retail BI Sales Dashboard: executive decisions on revenue, margin and targets
 
-Projeto de Business Intelligence para análise de performance comercial em uma operação de varejo multicanal. O objetivo é transformar dados transacionais de pedidos, produtos, clientes e metas em indicadores executivos para apoiar decisões de gestão.
+[Portuguese version](README.pt-BR.md)
 
-> Dados sintéticos criados para fins de portfólio. O projeto simula um cenário real de BI/MIS, com foco em SQL, Power BI, KPIs, qualidade de dados e narrativa de negócio.
+Business Intelligence case study built around an executive question: **is the operation selling well, protecting margin and meeting targets by channel?**
 
-## Problema de negócio
+The case simulates an executive dashboard for multichannel retail. The goal is not just listing sales KPIs; it is turning orders, items, products, customers and targets into a management read: where revenue is concentrated, where margin is under pressure and where targets may be poorly calibrated.
 
-Uma operação de varejo precisa acompanhar vendas, margem e desempenho comercial por mês, canal, estado e categoria. Os dados existem em tabelas separadas e não há uma visão única para responder rapidamente perguntas como:
+The project is structured to demonstrate professional BI delivery: reproducible data, analytical model, KPIs, validations, DAX measures, HTML dashboard and executive recommendations.
 
-- A receita está crescendo ou caindo?
-- Quais categorias vendem mais e quais geram mais margem?
-- Existe concentração de receita em poucos canais ou regiões?
-- As metas mensais estão sendo cumpridas?
-- Há inconsistências nos dados antes de divulgar os indicadores?
+## Executive Summary
 
-## Objetivo do projeto
+**Core question:** is the BI layer ready to support commercial decision-making?
 
-Construir uma base analítica e um modelo de dashboard para monitorar KPIs comerciais, identificar desvios e transformar dados operacionais em recomendações de negócio.
+**Short answer:** yes. The model is **Approved** for executive publication: there are no critical data quality failures in the BI base. There are **256 warnings** related to cancelled orders with potential revenue, but these orders are excluded from executive KPIs and monitored separately.
 
-## Ferramentas e competências demonstradas
+**Recommended decision:** use the dashboard to protect margin in pressured categories, especially **Esporte**, and review targets where actuals repeatedly exceed plan.
 
-- SQL para consultas analíticas, joins, agregações e validações.
-- Power BI para modelagem, medidas DAX e especificação de dashboard.
-- Python para geração de base sintética e reprodutibilidade.
-- DuckDB como engine local para consultas SQL.
-- Documentação de regras de negócio, dicionário de dados e qualidade dos dados.
-- Storytelling com dados para apoiar decisões executivas.
+| Metric | Result |
+|---|---:|
+| Net revenue | R$ 1,081,455 |
+| Gross margin | R$ 334,983 |
+| Gross margin rate | 31.0% |
+| Delivered orders | 944 |
+| Average ticket | R$ 1,146 |
+| Units sold | 6,035 |
+| Publication status | Approved |
 
-## Estrutura do repositório
+## Why This Case Matters
+
+Retail BI is the most familiar case for many data and BI recruiters. For that reason, it must be defended as **executive decision support**, not as a generic dashboard.
+
+Interview version: "I built a BI layer that separates delivered and cancelled orders, calculates revenue and margin at the correct grain, compares actuals against targets and points to where management should act."
+
+The case demonstrates:
+
+1. **Classic BI executed well:** commercial KPIs, targets, channels and categories.
+2. **Analytical modeling:** facts, dimensions and metrics calculated at the right grain.
+3. **Quality before publication:** cancelled orders do not enter executive revenue.
+4. **Executive storytelling:** revenue, margin and targets become management recommendations.
+
+## Business Problem
+
+A retail company needs to monitor revenue, margin and targets by channel, month and category. Without a single analytical layer, management is slow to answer:
+
+- Which channel generates the most revenue?
+- Is margin healthy?
+- Which categories sell a lot but pressure profitability?
+- Are monthly targets calibrated?
+- Are the data ready to refresh the executive dashboard?
+
+## Analytical Read
+
+The operation delivers **R$ 1.08M** in net revenue, **R$ 335k** in gross margin and **31.0%** margin rate. **Store** leads revenue with **R$ 370,978**, but the gap across channels is small: Store, Marketplace and E-commerce are close in share.
+
+By category, **Casa** leads revenue with **R$ 354,800**, but it is not the most profitable category. The lowest margin is **Esporte**, at **25.9%**, making it a priority for commercial investigation: pricing, discounting, product mix, cost or campaign strategy.
+
+Monthly revenue grows from **R$ 166,964** in January to **R$ 206,724** in June. At the same time, margin rate declines from **31.7%** to **30.5%**. The executive read is useful: revenue is growing, but profitability needs protection.
+
+The best target attainment is **2026-03 / Marketplace**, at **107.0%**. When a channel repeatedly exceeds target, the issue may not be only strong performance; the target itself may be underestimated.
+
+## Delivery
+
+The project delivers:
+
+- reproducible synthetic base with 1,200 orders and 3,012 items;
+- analytical model in DuckDB;
+- SQL for KPIs, targets, channels, categories and products;
+- quality checks before publication;
+- documented DAX measures for Power BI;
+- HTML dashboard with the main indicators;
+- CSV outputs for audit and reuse.
+
+## Dashboard
+
+Open the local dashboard at:
 
 ```text
-retail-bi-sales-dashboard/
-├── data/
-│   ├── sample_orders.csv
-│   ├── sample_order_items.csv
-│   ├── sample_products.csv
-│   ├── sample_customers.csv
-│   ├── sample_targets.csv
-│   └── README.md
-├── docs/
-│   ├── business_rules.md
-│   ├── dashboard_blueprint.md
-│   └── data_dictionary.md
-├── images/
-│   └── dashboard_preview.svg
-├── powerbi/
-│   └── measures_dax.md
-├── scripts/
-│   ├── generate_retail_data.py
-│   └── run_sql.py
-├── sql/
-│   ├── 01_create_schema_duckdb.sql
-│   ├── 02_data_quality_checks.sql
-│   └── 03_kpi_queries.sql
-├── requirements.txt
-└── README.md
+dashboard/retail_bi_sales_dashboard.html
 ```
 
-## Modelo analítico
+Explicit language variants are also generated:
 
-O modelo foi pensado em formato estrela:
-
-- `fact_sales`: itens vendidos, receita, custo e margem.
-- `dim_orders`: dados do pedido, data, canal, status, pagamento e UF.
-- `dim_products`: produto, categoria e subcategoria.
-- `dim_customers`: cliente e segmento.
-- `fact_targets`: metas mensais de receita e margem.
-
-## KPIs principais
-
-- Receita bruta
-- Receita líquida
-- Custo dos produtos vendidos
-- Margem bruta
-- Margem percentual
-- Pedidos entregues
-- Ticket médio
-- Receita por mês
-- Receita por canal
-- Receita e margem por categoria
-- Aderência à meta mensal
-
-## Prévia do dashboard
-
-![Dashboard preview](images/dashboard_preview.svg)
-
-## Como executar localmente
-
-1. Clone o repositório:
-
-```bash
-git clone https://github.com/bruniversamente/retail-bi-sales-dashboard.git
-cd retail-bi-sales-dashboard
+```text
+dashboard/retail_bi_sales_dashboard_en.html
+dashboard/retail_bi_sales_dashboard_pt-BR.html
 ```
 
-2. Instale as dependências:
+![Dashboard preview](images/dashboard_preview.png)
+
+## Main Findings
+
+- Highest-revenue channel: **Store**, with **R$ 370,978**.
+- Highest-revenue category: **Casa**, with **R$ 354,800**.
+- Lowest-margin category: **Esporte**, with **25.9%**.
+- Best target attainment: **2026-03 / Marketplace**, with **107.0%**.
+- Recommendation: protect margin in lower-profitability categories and review targets where actuals repeatedly exceed plan.
+
+## Generated Outputs
+
+- `outputs/executive_findings.md`: English executive findings.
+- `outputs/executive_findings.pt-BR.md`: Portuguese executive findings.
+- `outputs/kpi_summary.csv`: general KPIs.
+- `outputs/monthly_performance.csv`: monthly trend.
+- `outputs/channel_performance.csv`: revenue, margin and share by channel.
+- `outputs/category_performance.csv`: revenue and margin by category.
+- `outputs/target_tracking.csv`: actual vs target by month and channel.
+- `outputs/product_ranking.csv`: product ranking.
+- `outputs/dq_summary.csv`: quality rules and severity.
+- `outputs/dashboard_data.json`: data used by the HTML dashboard.
+
+## Stack
+
+- Python for data generation and orchestration.
+- DuckDB for local analytical modeling.
+- SQL for transformations, validations and KPIs.
+- Power BI/DAX as the final consumption design.
+- HTML/CSS for a static dashboard reviewable in the repository.
+
+## Reproduce
 
 ```bash
 pip install -r requirements.txt
-```
-
-3. Execute os scripts SQL com DuckDB:
-
-```bash
+python scripts/build_outputs.py
 python scripts/run_sql.py
 ```
 
-4. Gere uma base maior, caso queira substituir os arquivos de exemplo:
+The first command generates data, DuckDB database, CSVs, dashboard and executive findings. The second prints SQL queries to the terminal for technical review.
 
-```bash
-python scripts/generate_retail_data.py
-```
+## Analytical Model
 
-## Principais insights esperados
+The model follows a simple star schema:
 
-Em uma análise desse tipo, o dashboard permite identificar:
+- `fact_sales`: sold items, revenue, cost and margin.
+- `dim_orders`: order, date, channel, status, payment and state.
+- `dim_products`: product, category and subcategory.
+- `dim_customers`: customer, segment, city and state.
+- `fact_targets`: monthly targets by channel.
 
-1. Categorias que vendem muito, mas entregam margem baixa.
-2. Canais com alto volume e baixa rentabilidade.
-3. Meses com queda de receita ou desvio em relação à meta.
-4. Regiões com desempenho acima ou abaixo do esperado.
-5. Produtos que concentram receita e exigem acompanhamento de estoque ou precificação.
+## Quality Criteria
 
-## Recomendações de negócio simuladas
+The executive dashboard can be published when:
 
-- Revisar descontos em categorias de alta receita e baixa margem.
-- Acompanhar semanalmente o desempenho de canais com maior variação.
-- Priorizar ações comerciais em regiões com boa margem e baixa penetração.
-- Criar alertas para divergência entre receita realizada e meta mensal.
-- Manter validações automáticas antes de atualizar relatórios executivos.
+- there are no critical failures;
+- cancelled orders are excluded from executive revenue;
+- discounts, prices, costs and key references pass validation;
+- warnings are documented for operational follow-up.
 
-## Próximos passos
+## Simulated Recommendations
 
-- Criar arquivo `.pbix` com modelo final no Power BI.
-- Publicar screenshots reais do dashboard.
-- Incluir análise de clientes recorrentes.
-- Adicionar simulação de forecast simples para receita mensal.
+1. Protect margin in **Esporte** by investigating discounting, cost, mix and campaigns.
+2. Monitor **Casa** carefully: it is the largest category by revenue, but not the best by margin rate.
+3. Review targets for channels that frequently exceed plan, separating strong execution from underestimated targets.
+4. Keep cancelled orders out of executive KPIs, but visible as an operational warning.
+5. Use the dashboard as a monthly management read: revenue, margin, target and data quality in the same workflow.
 
-## Autor
+## Author
 
 Bruno Nascimento  
 [LinkedIn](https://linkedin.com/in/bruniversamente) | [GitHub](https://github.com/bruniversamente)
